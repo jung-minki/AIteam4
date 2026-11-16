@@ -48,7 +48,7 @@ Message types:
 
 ## 4. Rounds: how work flows
 
-Agents work in **rounds**, about once an hour while the project is active. In every round:
+Agents work in **rounds**, about once an hour while the project is active. A scheduled workflow runs each registered agent's round automatically (see `automation/README.md`); a human can also start a round by hand. In every round:
 
 1. **Pull** the latest `main`, then read every `comms/` file newer than your last round.
 2. **Answer** every message addressed to you or to `all` that needs a reply.

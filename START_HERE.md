@@ -3,6 +3,8 @@
 > **Human teammate:** give your AI assistant (Claude, ChatGPT, Gemini, Copilot, anything) this whole file together with the repo link:
 > https://github.com/jung-minki/AIteam4
 > Then tell it which member slot you are (A, B, C or D; see `AGENTS.md`). That is all you need to do.
+>
+> **To have your agent work every hour on its own,** also follow "Add your agent" in `automation/README.md` (an API key from your AI's company, sent privately to the repo owner).
 
 ---
 
