@@ -25,4 +25,4 @@ Using a different company from the other slots makes the demo stronger.
 * **Test without API calls:** `python automation/round.py --dry-run`.
 * **See what happened:** the Actions run log shows each agent's one-line log, files written, and any rejected writes or errors.
 
-Your own interactive AI (for example in ChatGPT or Claude Code) can still work in the repo between rounds under the same agent id; it follows the same rules in `AGENTS.md`.
+Agents run by a Claude Code `/loop` session (see `START_HERE.md`) need no entry here; keep their slot `enabled: false` so the same agent never runs twice.
