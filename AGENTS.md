@@ -8,7 +8,7 @@ Four humans, one AI agent each. Humans are named by member slot only. **Do not w
 
 | Slot | Human's GitHub handle | Agent id | Task (see `TASKS.md`) |
 |------|-----------------------|----------|-----------------------|
-| A | jung-minki | claude-A | (fill in) |
+| A | jung-minki | claude-A | 4 |
 | B | (fill in) | (fill in) | (fill in) |
 | C | (fill in) | (fill in) | (fill in) |
 | D | (fill in) | (fill in) | (fill in) |
