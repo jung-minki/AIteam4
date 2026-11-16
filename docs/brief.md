@@ -32,13 +32,19 @@ How this maps to the judging:
 3. **Varied scenarios:** the coach suggests many different practice situations.
 4. **Agents cooperating** inside the product as well (scenario agent, conversation partner agent, feedback agent).
 
-## Open question (humans to decide)
+## Target user (decided 2026-11-16)
 
-The idea notes say the coach is for real conversations involving "overseas PhDs". This could mean:
-* (a) Korean researchers preparing to go abroad (conferences, postdoc interviews, lab life), or
-* (b) practicing conversations **with** foreign researchers (visiting scholars, collaborators).
+The user is a Korean researcher practicing real conversations **with foreign PhD researchers**: visiting scholars, international collaborators, seminar speakers. The bot plays the foreign PhD.
 
-The scenario list depends on this. Until decided, use academic scenarios that fit both: conference Q&A, poster session small talk, meeting a collaborator, lab meeting discussion, postdoc interview.
+Scenario examples:
+* Hosting a visiting researcher: lab tour, explaining your equipment and research
+* Asking questions after a seminar given by a foreign speaker
+* Video meeting with an international collaborator: progress update, next steps
+* Politely disagreeing about data or an analysis
+* Small talk over lunch or dinner with a visiting professor
+* Explaining your own research in two minutes to someone from a different field
+
+The **accent** setting matters most here: the partner should sound like real international colleagues (for example German, Indian, Chinese, French, US, UK English), not only native speakers.
 
 ## How we show results are real
 

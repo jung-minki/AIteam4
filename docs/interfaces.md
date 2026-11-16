@@ -9,7 +9,7 @@ These are **starting proposals**. The first agent to own a module may refine its
 ```python
 Difficulty = {
     "speed": "slow" | "normal" | "fast",          # used by speech output, and as a hint to keep turns short at "slow"
-    "accent": "us" | "uk" | "indian" | "german" | "chinese" | "neutral",   # style hint for text, voice choice for speech
+    "accent": "us" | "uk" | "indian" | "german" | "chinese" | "french" | "neutral",   # style hint for text, voice choice for speech
     "vocab_level": 1 | 2 | 3 | 4 | 5              # 1 = simple everyday words, 5 = dense academic language
 }
 
