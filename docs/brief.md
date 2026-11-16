@@ -13,28 +13,29 @@
 
 ## Our pitch
 
-**Main claim:** AI agents used by different people, built by different companies, can collaborate on one project through a shared GitHub repo, with no direct connection between them.
+**Main claim:** AI agents from different companies, working for different people, can build one product together through a shared GitHub repo, with no direct connection between them.
 
-**The medium:** together, those agents build an **English conversation coach for researchers**, a bot that runs realistic practice conversations and coaches the user afterwards.
+**The product:** a **voice English conversation coach for researchers**. It is one ChatGPT custom GPT, used in ChatGPT's voice mode. What makes it ours is its **instructions**, and those instructions are written section by section by different AI agents in this repo.
+
+Why this design (decided 2026-11-16):
+* Voice mode gives us live speech, speaking speed and accents for free. No app code to build or debug.
+* Every agent can contribute, even one that can only read the repo, because a section is just Markdown.
+* The repo still records every handoff, review and decision between agents. That record is half of our demo.
 
 How this maps to the judging:
-* **Creativity:** the team itself is an AI experiment. Four AIs coordinate through files.
-* **AI usage:** each module is owned by a different AI. The `comms/` folder and git history show every handoff.
-* **Results:** a working coach demo, plus the collaboration record as evidence (message count, handoffs, decisions, which agent wrote what).
+* **Creativity:** the team itself is an AI experiment. Four AIs coordinate through files to write one coach.
+* **AI usage:** each instruction section is owned by one AI and reviewed by an AI from a different company. `comms/` and the git history show every step.
+* **Results:** a live voice demo, a before and after measurement, and collaboration stats from the repo.
 
-## The coach: features from the team's idea notes
+## The coach: what it must do
 
-1. **Adjustable difficulty** along three axes:
-   * **Speed** of speech
-   * **Accent / intonation**
-   * **Vocabulary level**
-2. **Feedback loop:** after each conversation the coach gives concrete feedback, and the next session adapts to it.
-3. **Varied scenarios:** the coach suggests many different practice situations.
-4. **Agents cooperating** inside the product as well (scenario agent, conversation partner agent, feedback agent).
+1. **Adjustable difficulty** along three axes: **speed** of speech, **accent**, **vocabulary level**. The user changes them by voice ("slower please", "switch to a German colleague", "harder words").
+2. **Feedback loop:** after each conversation the coach gives short spoken feedback with scores, and the next conversation adapts to it.
+3. **Varied scenarios:** the coach offers many realistic practice situations.
 
 ## Target user (decided 2026-11-16)
 
-The user is a Korean researcher practicing real conversations **with foreign PhD researchers**: visiting scholars, international collaborators, seminar speakers. The bot plays the foreign PhD.
+The user is a Korean researcher practicing real conversations **with foreign PhD researchers**: visiting scholars, international collaborators, seminar speakers. The coach plays the foreign PhD.
 
 Scenario examples:
 * Hosting a visiting researcher: lab tour, explaining your equipment and research
@@ -48,17 +49,17 @@ The **accent** setting matters most here: the partner should sound like real int
 
 ## How we show results are real
 
-Pick at least one before Thursday:
-* Each team member does one conversation before and one after a feedback round. Compare feedback scores and self ratings.
-* Show that the vocabulary level setting really changes output (for example a readability score or word frequency band per level).
-* Collaboration stats from the repo: number of agents, providers, messages, handoffs, commits per agent.
+See `results/protocol.md` (task 5). At least:
+* Each team member does one conversation before and one after a feedback round. Compare the coach's scores and the member's own rating.
+* Show that the vocabulary level setting really changes what the partner says (same scenario at level 1 and level 5, compare the transcripts).
+* Collaboration stats from the repo: agents, companies, messages, reviews, commits per agent.
 
-## Schedule
+## Schedule (compressed: agents work in hourly rounds, see `AGENTS.md`)
 
-| Day | Goal |
-|-----|------|
-| Mon 11/16 | Repo set up. Every agent registered and has said hello. Tasks claimed. |
-| Tue 11/17 | Each module works on its own with sample input. |
-| Wed 11/18 | Modules connected end to end (text only). |
-| Thu 11/19 | Working demo by noon. Then results measurement, slides, rehearsal. Speech only if time allows. |
+| When | Goal |
+|------|------|
+| Mon 11/16 | Agents registered, tasks claimed, first draft of every section. |
+| Tue 11/17 | Cross reviews done, instructions assembled, custom GPT set up and tested in voice mode. |
+| Wed 11/18 | Fixes from voice testing. Results measured. |
+| Thu 11/19 | Slides, demo script, rehearsal. |
 | Fri 11/20 | Present. |

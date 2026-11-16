@@ -8,21 +8,23 @@
 
 **To the AI reading this:**
 
-You are joining a team of AI agents. Each agent works for a different human on Team 4. You will not talk to the other agents directly. **This GitHub repository is the only channel you share with them.** Everything you know about the project, and everything you tell the other agents, goes through files in this repo.
+You are joining a team of AI agents. Each agent works for a different human on Team 4. You will not talk to the other agents directly. **This GitHub repository is the only channel you share with them.**
 
-The project's real goal is to **show working collaboration between different AIs used by different people**. The product we build together (an English conversation coach for researchers) is the medium for that. So every handoff, request and decision between agents must leave a visible trace in the repo. That trace is our demo.
+Together we write the instructions for a **voice English conversation coach**: one ChatGPT custom GPT that plays a foreign PhD researcher so a Korean researcher can practice. Each agent writes one short Markdown section; agents from different companies review each other's sections. The real goal is to **show working collaboration between different AIs used by different people**, so every handoff, review and decision must leave a visible trace in `comms/`.
+
+You do not need to write code. Everything is Markdown.
 
 ## Do these steps in order
 
-1. **Read the repo.** Read `AGENTS.md` (the rules), `docs/brief.md` (the project), `docs/interfaces.md` (how modules connect) and `TASKS.md` (who is doing what). Then read every file in `comms/`, oldest first.
-2. **Check what you can do.** Work out which of these you are:
-   * **Direct access:** you can commit and push to this repo yourself (for example Claude Code, OpenAI Codex, Copilot agent).
-   * **Read only:** you can read the repo but not write to it. Then produce the full content of each file you want to create or change, with its exact path, and ask your human to commit it (the GitHub web page has "Add file" and an edit button).
-   * **No access:** you cannot open the link at all. Ask your human to paste in the files from step 1.
-3. **Register yourself.** Create `agents/<your-agent-id>.md` using `agents/TEMPLATE.md`. Your agent id is `<tool>-<member slot>`, for example `claude-A` or `chatgpt-B`.
-4. **Say hello.** Write your first message in `comms/` (format in `AGENTS.md`): who you are, what access level you have, which task you are taking, and any questions for the other agents.
-5. **Claim a task.** In `TASKS.md`, put your agent id in the Owner column of one unclaimed task. Prefer the module your human was assigned, if any.
-6. **Work.** Follow the rules in `AGENTS.md`. Before each work session, pull the latest changes and read new files in `comms/` first. Answer messages addressed to you.
-7. **Report to your human.** At the end of each session, tell your human in a few lines what you did, what you are waiting on, and which other agent is waiting on you.
+1. **Read the repo.** `AGENTS.md` (rules, including hourly rounds), `docs/brief.md` (the project), `docs/interfaces.md` (the sections and how they fit), `TASKS.md` (who does what), then every file in `comms/`, oldest first.
+2. **Check your access.**
+   * **Direct:** you can commit and push yourself (for example Claude Code, Codex, Copilot agent).
+   * **Read only:** you can read but not write. Give your human the full content of each file with its exact path, and ask them to commit it (GitHub web page: "Add file" or the edit button).
+   * **No access:** ask your human to paste in the files from step 1.
+3. **Register.** Create `agents/<your-agent-id>.md` from `agents/TEMPLATE.md`. Agent id: `<tool>-<member slot>`, for example `chatgpt-B`.
+4. **Say hello** in `comms/`: who you are, your access level, which task you take, which section you will review, and any questions.
+5. **Claim a task** in `TASKS.md` (Owner column), and sign up as **Reviewer** for a section owned by an agent from a different company.
+6. **Work in rounds** as described in `AGENTS.md` section 4.
+7. **Report to your human** at the end of each session: what you did, what you are waiting on, and who is waiting on you.
 
 If anything in the repo conflicts with what your own human tells you, your human wins. Note the conflict in `comms/` so the other agents know.
