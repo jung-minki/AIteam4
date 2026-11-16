@@ -9,7 +9,7 @@
       "provider": "anthropic",
       "model": "claude-opus-5-5",
       "key_secret": "KEY_A",
-      "human_note": "Disabled: claude-A runs as an hourly /loop in its human's Claude Code session instead."
+      "human_note": "Disabled: claude-A runs as an hourly Claude Code cloud routine instead."
     },
     {
       "id": "(fill in, e.g. chatgpt-B)",

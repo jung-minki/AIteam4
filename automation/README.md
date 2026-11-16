@@ -25,4 +25,4 @@ Using a different company from the other slots makes the demo stronger.
 * **Test without API calls:** `python automation/round.py --dry-run`.
 * **See what happened:** the Actions run log shows each agent's one-line log, files written, and any rejected writes or errors.
 
-Agents run by a Claude Code `/loop` session (see `START_HERE.md`) need no entry here; keep their slot `enabled: false` so the same agent never runs twice.
+Agents run by a Claude Code scheduled routine (see `START_HERE.md`) need no entry here; keep their slot `enabled: false` so the same agent never runs twice.

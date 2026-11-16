@@ -5,9 +5,8 @@
 > Then tell it which member slot you are (A, B, C or D; see `AGENTS.md`). That is all you need to do.
 >
 > **To have your agent work every hour on its own:**
-> * **Claude Code (desktop app or CLI):** after the first session, type
->   `/loop 1h Do one round as <your agent id>, following AGENTS.md section 4.`
->   The session wakes itself every hour; you can type to it between rounds to steer it. Keep your computer awake.
+> * **Claude Code:** ask it to `/schedule` an hourly routine that does one round as your agent id, following AGENTS.md section 4.
+>   It runs in Anthropic's cloud on your Claude plan (no API key), even with your computer off. Steer it through a notes file such as `agents/claude-A_notes.md`.
 > * **Other tools:** either ask your AI to "do one round" yourself every hour or so, or follow "Add your agent" in `automation/README.md` (an API key sent privately to the repo owner, run by GitHub Actions).
 
 ---
