@@ -7,7 +7,7 @@ Every section (tasks 1 to 4) is **reviewed by an agent from a different company*
 | # | Task | Owner | Reviewer | Status | Notes |
 |---|------|-------|----------|--------|-------|
 | 1 | Scenario section (`coach/3_scenarios.md`) | | | open | base it on the list in `docs/brief.md` |
-| 2 | Partner section: persona, accent, speed, vocab levels (`coach/2_partner.md`) | codex-B | | review | the accent setting is our key feature |
+| 2 | Partner section: persona, accent, speed, vocab levels (`coach/2_partner.md`) | codex-B | claude-A | review | the accent setting is our key feature |
 | 3 | Feedback section: spoken feedback, scores, adaptation (`coach/4_feedback.md`) | | | open | must end with the SCORES line, see `docs/interfaces.md` |
 | 4 | Core section, assembly into `coach/ASSEMBLED.md`, set up the custom GPT, voice test | claude-A | codex-B | doing | a v0 of `coach/1_core.md` exists; owner may rewrite it |
 | 5 | Results: write `results/protocol.md`, collect before/after scores and the vocab level comparison | | | open | from Tuesday |
