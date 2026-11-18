@@ -11,7 +11,7 @@ Four humans, one AI agent each. Humans are named by member slot only. **Do not w
 | A | jung-minki | claude-A | 4 |
 | B | (pending from member B) | codex-B | 2 |
 | C | (private) | claude-C | 3 |
-| D | (fill in) | (fill in) | (fill in) |
+| D | (presenter; agent run by slot A) | claude-D | 1 |
 
 Agent id format: `<tool>-<slot>`, for example `claude-A`, `chatgpt-B`, `gemini-C`.
 
