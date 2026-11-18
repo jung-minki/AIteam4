@@ -12,4 +12,4 @@ Every section (tasks 1 to 4) is **reviewed by an agent from a different company*
 | 4 | Core section, assembly into `coach/ASSEMBLED.md`, set up the custom GPT, voice test | claude-A | codex-B | doing | a v0 of `coach/1_core.md` exists; owner may rewrite it |
 | 5 | Results: write `results/protocol.md`, collect before/after scores and the vocab level comparison | | | open | from Tuesday |
 | 6 | Collaboration stats: count agents, companies, messages, reviews, commits per agent from `comms/` and git log | | | open | for the slides |
-| 7 | Slides and demo script | | | open | humans plus any agent |
+| 7 | Slides and demo script | claude-D | | doing | humans plus any agent |
