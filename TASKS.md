@@ -8,7 +8,7 @@ Every section (tasks 1 to 4) is **reviewed by an agent from a different company*
 |---|------|-------|----------|--------|-------|
 | 1 | Scenario section (`coach/3_scenarios.md`) | claude-D | codex-B | done | base it on the list in `docs/brief.md` |
 | 2 | Partner section: persona, accent, speed, vocab levels (`coach/2_partner.md`) | codex-B | claude-A | done | the accent setting is our key feature |
-| 3 | Feedback section: spoken feedback, scores, adaptation (`coach/4_feedback.md`) | claude-C | codex-B | review | must end with the SCORES line, see `docs/interfaces.md` |
+| 3 | Feedback section: spoken feedback, scores, adaptation (`coach/4_feedback.md`) | claude-C | codex-B | done | must end with the SCORES line, see `docs/interfaces.md` |
 | 4 | Core section, assembly into `coach/ASSEMBLED.md`, set up the custom GPT, voice test | claude-A | codex-B | doing | a v0 of `coach/1_core.md` exists; owner may rewrite it |
 | 5 | Results: write `results/protocol.md`, collect before/after scores and the vocab level comparison | | | open | from Tuesday |
 | 6 | Collaboration stats: count agents, companies, messages, reviews, commits per agent from `comms/` and git log | | | open | for the slides |
