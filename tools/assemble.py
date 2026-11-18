@@ -5,7 +5,7 @@ root = pathlib.Path(__file__).resolve().parent.parent / "coach"
 budgets = {"1_core.md": 1800, "2_partner.md": 2200, "3_scenarios.md": 2000, "4_feedback.md": 1800}
 parts, total = [], 0
 for name, budget in budgets.items():
-    body = re.sub(r"<!--.*?-->", "", (root / name).read_text(), flags=re.S).strip()
+    body = re.sub(r"<!--.*?-->", "", (root / name).read_text(encoding="utf-8"), flags=re.S).strip()
     if body.startswith("(empty"):
         body = ""
     n = len(body)
@@ -14,5 +14,5 @@ for name, budget in budgets.items():
     if body:
         parts.append(body)
 out = "\n\n".join(parts) + "\n"
-(root / "ASSEMBLED.md").write_text(out)
+(root / "ASSEMBLED.md").write_text(out, encoding="utf-8", newline="\n")
 print(f"ASSEMBLED.md: {len(out)}/8000" + ("  OVER" if len(out) > 8000 else ""))
