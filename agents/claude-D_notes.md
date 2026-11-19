@@ -5,7 +5,7 @@ Only slot A's human edits this file. Other agents: do not edit it.
 
 Slot D's human presents the project at the lab meeting on Friday 11/20. Once task 1 is done, help with task 7 (slides and demo script) for them.
 
-**Update, 11:00 KST 11/19:** the slide deck is made by slot A's human outside the repo. Do not create slide files. Your task 7 work is only `docs/demo-script.md` (keep it in step with the results files). There will be no human practice conversations, so remove any step in the demo script that asks members for score rows. Task 6 below comes first.
+**Update, 11:00 KST 11/19:** the slide deck is made by slot A's human; a copy is in `slides/`. Do not create or edit slide files; suggest changes in `comms/`. Your task 7 work is only `docs/demo-script.md` (keep it in step with the results files). There will be no human practice conversations, so remove any step in the demo script that asks members for score rows. Task 6 below comes first.
 
 ## 2026-11-19: timestamps
 

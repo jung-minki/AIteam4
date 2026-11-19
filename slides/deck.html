@@ -1,0 +1,271 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><title>Four AI agents, two companies, one coach</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap"><style>* { margin: 0 } html { background:#2b2f36 } body { font: 32px/1.2 sans-serif; padding: 24px 0 }
+body > section { width: 1920px; height: 1080px; overflow: hidden; position: relative; isolation: isolate; margin: 0 auto 32px; box-shadow: 0 8px 32px #0006 }
+aside { display: none }
+table { width: 100%; border-collapse: separate; border-spacing: 0 } th, td { padding: .35em .6em; text-align: left; border-bottom: 2px solid #0002 }</style><style>:root {
+  --ink: #17202B;
+  --paper: #F6F4EF;
+  --paper2: #EAE6DD;
+  --card: #FFFDF9;
+  --line: #D9D3C7;
+  --soft: #4B5563;
+  --teal: #1F6F80;
+  --orange: #C65F28;
+  --mist: #C9D6DA;
+}
+
+body { font-family: 'Inter', Arial, sans-serif; color: var(--ink); }
+
+section {
+  box-sizing: border-box;
+  padding: 128px 128px 160px;
+  background: var(--paper);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  counter-increment: page;
+}
+section.alt { background: var(--paper2); }
+section.dark { background: var(--ink); color: var(--paper); }
+section.accent { background: var(--teal); color: var(--paper); }
+
+/* type scale: 120 / 72 / 44 / 32 / 24 */
+.eyebrow { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 24px; font-weight: 600; letter-spacing: 2px; color: var(--teal); }
+.dark .eyebrow, .accent .eyebrow { color: var(--mist); }
+h1 { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 120px; font-weight: 600; line-height: 1.05; letter-spacing: -2px; }
+h2 { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 72px; font-weight: 600; line-height: 1.1; letter-spacing: -1px; margin-top: 16px; }
+h3 { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 44px; font-weight: 600; line-height: 1.15; }
+p { font-size: 32px; line-height: 1.4; }
+.lede { font-size: 32px; line-height: 1.4; color: var(--soft); margin-top: 32px; }
+.dark .lede, .accent .lede { color: var(--mist); }
+.small { font-size: 24px; line-height: 1.4; color: var(--soft); }
+.mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+
+.foot { position: absolute; left: 128px; bottom: 64px; width: 1664px; display: flex; justify-content: space-between; }
+.foot p { font-size: 24px; color: var(--soft); }
+.dark .foot p, .accent .foot p { color: var(--mist); }
+.foot .pg::after { content: counter(page); }
+
+/* cards */
+.row { display: flex; gap: 32px; margin-top: 56px; }
+.card { flex: 1; background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 40px; box-sizing: border-box; }
+.card h3 { margin-bottom: 16px; }
+.card p { font-size: 28px; color: var(--soft); }
+.card .tag { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 24px; font-weight: 600; color: var(--orange); margin-bottom: 16px; }
+
+/* pills for spoken commands and file names */
+.pills { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+.pill, .card .pill { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 24px; background: var(--ink); color: var(--paper); padding: 8px 20px; border-radius: 999px; }
+
+/* big numbers */
+.stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-top: 56px; }
+.stat { border-top: 4px solid var(--teal); padding-top: 24px; }
+.stat .num { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 120px; font-weight: 600; line-height: 1; color: var(--ink); }
+.stat .lab { font-size: 28px; color: var(--soft); margin-top: 12px; }
+
+/* tables */
+table { font-size: 28px; color: var(--ink); margin-top: 48px; width: 100%; }
+tr.head { background: var(--ink); color: var(--paper); }
+
+/* file mock */
+.file { background: var(--ink); border-radius: 16px; padding: 40px; box-sizing: border-box; }
+.file p { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 24px; line-height: 1.5; color: var(--paper); }
+.file .meta { color: var(--mist); }
+.file .name { color: #E9A77C; margin-bottom: 16px; }
+
+/* steps */
+.steps { display: flex; flex-direction: column; gap: 20px; margin-top: 40px; }
+.step { display: flex; gap: 24px; align-items: center; }
+.step .n { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 44px; font-weight: 600; color: var(--orange); width: 56px; }
+.step p { font-size: 30px; }
+.accent .step .n { color: var(--paper); }
+
+/* placeholder figure (to fill from results) */
+.todo, .card .todo { color: var(--orange); font-weight: 600; }
+
+/* motion: content rises in on arrival */
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.rise { animation: rise 600ms ease-out both; animation-delay: calc(var(--i, 0) * 120ms); }
+</style><body><section id="cover" class="dark" style="justify-content:space-between;">
+<p class="eyebrow">TEAM 4 · AI BEYOND FUSION</p>
+<div>
+<h1 class="rise">Four AI agents,<br>two companies,<br>one coach</h1>
+<p class="lede rise" style="--i:2; max-width:1300px;">AI agents working for different people built a voice English coach for researchers together, talking to each other only through files in a shared GitHub repo.</p>
+</div>
+<p class="small mono" style="color:#C9D6DA;">Lab meeting · Friday 20 November 2026 · github.com/jung-minki/AIteam4</p>
+<aside>About 1 minute. Hello, we are Team 4. Our project has two parts that run at the same time. The visible part is a voice English coach for researchers. The less visible part, and the real experiment, is how it was built: four AI agents, working for four different team members and coming from two companies, wrote it together. They never talked to each other directly. Every request, review and decision went through files in one GitHub repository, so the whole collaboration is on the record and you can check it.</aside>
+</section>
+<section id="problem">
+<p class="eyebrow">THE PROBLEM</p>
+<h2>Textbook English meets real colleagues</h2>
+<div class="row">
+<div class="card rise" style="--i:1;"><p class="tag">ACCENT</p><h3>Real colleagues are not news readers</h3><p>Visiting scholars and collaborators speak German, Indian, French or Chinese English.</p></div>
+<div class="card rise" style="--i:2;"><p class="tag">SPEED</p><h3>Conversations do not wait</h3><p>A question after a seminar or a video call moves at their pace, not ours.</p></div>
+<div class="card rise" style="--i:3;"><p class="tag">SITUATION</p><h3>The hard moments are specific</h3><p>Hosting a lab tour, asking a follow-up, politely disagreeing about data.</p></div>
+</div>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 1 minute. Our target user is a Korean researcher who has to talk with foreign PhD researchers: a visiting postdoc, an international collaborator, a seminar speaker. Three things make this hard. First, accents: real colleagues are not news readers. Second, speed: a conversation does not slow down for you. Third, the situations are specific: a lab tour, a question after a seminar, disagreeing politely about someone's analysis. General English classes do not train these. We wanted a practice partner that does.</aside>
+</section>
+<section id="twoexp" class="accent" style="justify-content:center;">
+<p class="eyebrow">OUR APPROACH</p>
+<h2 style="font-size:96px; max-width:1500px;">One product, two experiments</h2>
+<div class="row" style="gap:64px;">
+<div class="rise" style="--i:1; flex:1;"><h3>The coach</h3><p class="lede">A ChatGPT voice partner that plays a foreign PhD, with dials for speed, accent and vocabulary, and feedback after every conversation.</p></div>
+<div class="rise" style="--i:2; flex:1;"><h3>The team that built it</h3><p class="lede">Four AI agents, one per team member, from Anthropic and OpenAI. They never met: they coordinated only through files in a GitHub repo.</p></div>
+</div>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 1 minute. So we ran two experiments at once. The first is the product: a voice coach built as a ChatGPT custom GPT. It plays a foreign PhD researcher, you can change how fast it talks, which accent it uses and how hard its vocabulary is, and it gives you feedback after each conversation. The second is how it was made. Each team member had their own AI agent. Those agents come from two companies, Anthropic and OpenAI, and they never talked to each other directly. The only channel was a shared GitHub repository. The question was: can AIs from different companies, working for different people, actually build one thing together if all they share is a folder of files?</aside>
+</section>
+<section id="coach">
+<p class="eyebrow">THE COACH</p>
+<h2>Every round: pick a scene, talk, get feedback, adapt</h2>
+<div class="row" style="align-items:stretch;">
+<div class="card rise" style="--i:1; flex:1.3;">
+<div class="steps" style="margin-top:0;">
+<div class="step"><p class="n">1</p><p><b>Start.</b> The coach offers three scenarios, for example a lab tour.</p></div>
+<div class="step"><p class="n">2</p><p><b>Talk.</b> It plays a foreign PhD, about twelve exchanges.</p></div>
+<div class="step"><p class="n">3</p><p><b>Feedback.</b> One strength, two fixes, four scores.</p></div>
+<div class="step"><p class="n">4</p><p><b>Adapt.</b> New settings and a scenario for the weakest score.</p></div>
+</div>
+</div>
+<div class="card rise" style="--i:2; flex:1;">
+<h3>Three dials, changed by voice</h3>
+<p>Speed: slow, normal, fast. Accent: US, UK, Indian, German, Chinese, French. Vocabulary: level 1 to 5.</p>
+<div class="pills"><p class="pill">“slower”</p><p class="pill">“accent German”</p><p class="pill">“harder”</p><p class="pill">“end”</p></div>
+</div>
+</div>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 1.5 minutes. Here is what the coach does. Each round has four steps. It offers three scenarios, such as hosting a lab tour or asking a question after a seminar. You pick one and it plays a foreign PhD researcher for about twelve exchanges. When you say "end", it steps out of the role and gives feedback: one thing you did well, up to two things to say better, and scores for fluency, grammar, vocabulary and appropriateness. Then it adapts: if you did well it makes the next round harder, if you struggled it makes it easier, and it picks a scenario that trains your weakest score. The three dials, speed, accent and vocabulary level, can be changed by voice at any time, by just saying "slower", "accent German" or "harder". The whole coach is about 7,500 characters of instructions inside a custom GPT. No app code.</aside>
+</section>
+<section id="team" class="alt">
+<p class="eyebrow">THE TEAM</p>
+<h2>Four agents, four sections, every section checked by the other company</h2>
+<table>
+<tr class="head"><th style="width:10%;">Slot</th><th style="width:20%;">Agent</th><th style="width:18%;">Company</th><th style="width:32%;">Wrote</th><th style="width:20%;">Reviewed by</th></tr>
+<tr><td>A</td><td>claude-A</td><td>Anthropic</td><td>Core flow and assembly</td><td>codex-B</td></tr>
+<tr><td>B</td><td>codex-B</td><td>OpenAI</td><td>Partner: persona, accent, speed, vocabulary</td><td>claude-A</td></tr>
+<tr><td>C</td><td>claude-C</td><td>Anthropic</td><td>Feedback and scores</td><td>codex-B</td></tr>
+<tr><td>D</td><td>claude-D</td><td>Anthropic</td><td>Scenarios</td><td>codex-B</td></tr>
+</table>
+<p class="small" style="margin-top:32px;">Humans set direction through a private notes file per agent. Agents A and D ran unattended once an hour. The human of slot D is presenting today.</p>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 1 minute. These are the four agents. Each team member had one, named after its tool and slot: claude-A, codex-B, claude-C and claude-D. The coach's instructions were split into four sections, one per agent. The rule was that a section only counts as done after an agent from the other company has reviewed it. Because three agents are Claude, codex-B, the OpenAI agent, ended up reviewing three of the four sections. Humans did not edit the sections. We steered our agents through a notes file each agent reads first. Two of the agents ran on a schedule, once an hour, without anyone watching. I am slot D: my agent was run by slot A so that I could prepare this talk.</aside>
+</section>
+<section id="rules">
+<p class="eyebrow">HOW THEY TALKED</p>
+<h2>No chat, no API between them: just files</h2>
+<div class="row" style="gap:64px; align-items:flex-start;">
+<div class="steps rise" style="--i:1; flex:1; margin-top:0;">
+<div class="step"><p class="n">1</p><p>Every message is one new file in <b>comms/</b>: from, to, reply-to, type.</p></div>
+<div class="step"><p class="n">2</p><p>Each agent claims a task in <b>TASKS.md</b> and only edits its own section.</p></div>
+<div class="step"><p class="n">3</p><p>Changes to someone else's work are requests. The owner decides.</p></div>
+<div class="step"><p class="n">4</p><p>A human's instruction outranks anything an agent writes.</p></div>
+</div>
+<div class="file rise" style="--i:2; flex:1.1;">
+<p class="name">comms/20261118-0324_codex-B_budget-check.md</p>
+<p class="meta">from: codex-B<br>to: claude-A<br>re: …_claude-A_partner-over-budget.md<br>type: answer</p>
+<p style="margin-top:16px;">I rechecked the size with tools/assemble.py: coach/2_partner.md is 2,171/2,200 characters … no trim is needed.</p>
+</div>
+</div>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 1 minute. How did agents that never meet coordinate? Four rules. Every message is a new file in a folder called comms, with a header saying who it is from, who it is to, which message it answers and what kind of message it is. Tasks are claimed in one table, and each agent only edits its own section. If you want to change someone else's work, you send a request and the owner decides. And a human's instruction always wins over anything an agent writes. On the right is a real message, from codex-B, the OpenAI agent, answering claude-A. Because every message is a file, the repository is a complete, timestamped record of the collaboration.</aside>
+</section>
+<section id="moments" class="alt">
+<p class="eyebrow">FROM THE LOG</p>
+<h2>The reviews did real work</h2>
+<div class="row">
+<div class="card rise" style="--i:1;">
+<p class="tag">CODEX-B → CLAUDE-D · WED 21:41</p>
+<h3>Caught a stereotype</h3>
+<p>The scenario section said the partner’s background should match the chosen accent. codex-B flagged that this contradicts the partner rule: accent changes pronunciation only. claude-D rewrote the line within the hour.</p>
+</div>
+<div class="card rise" style="--i:2;">
+<p class="tag">CLAUDE-A ⇄ CODEX-B · WED 01:20–03:24</p>
+<h3>Checked the numbers, owned the mistake</h3>
+<p>claude-A reported the partner section 89 characters over budget. codex-B re-measured with the shared tool: the count had included a comment. claude-A retracted and apologised.</p>
+</div>
+</div>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 1.5 minutes. Two moments from the log show that the reviews were not a formality. First, Wednesday night. claude-D wrote that the partner's background should fit the chosen accent. codex-B, from the other company, pointed out that this conflicts with the rule in its own partner section: the accent changes pronunciation only and must not imply stereotypes. claude-D changed the line within the hour. Second, early Wednesday morning, claude-A told codex-B its section was 89 characters over the budget. codex-B re-measured with the team's own tool and showed the count had included a comment that is not part of the instructions. claude-A checked, agreed it was wrong, and retracted. Neither agent just accepted the other's claim: they checked. Both exchanges are in the comms folder with timestamps.</aside>
+</section>
+<section id="numbers">
+<p class="eyebrow">THE RECORD</p>
+<h2>Three and a half days, all of it in the repo</h2>
+<div class="stats">
+<div class="stat rise" style="--i:1;"><p class="num">4</p><p class="lab">agents, from 2 companies</p></div>
+<div class="stat rise" style="--i:2;"><p class="num">38</p><p class="lab">messages between agents</p></div>
+<div class="stat rise" style="--i:3;"><p class="num">37</p><p class="lab">commits by agents</p></div>
+<div class="stat rise" style="--i:4;"><p class="num">6</p><p class="lab">reviews, 5 of them across companies</p></div>
+<div class="stat rise" style="--i:5;"><p class="num">4/4</p><p class="lab">sections done and reviewed</p></div>
+<div class="stat rise" style="--i:6;"><p class="num">7,508</p><p class="lab">characters of 8,000 allowed</p></div>
+</div>
+<p class="small" style="margin-top:40px;">Snapshot Thursday 19 Nov, 11:00 KST. Final counts: results/collab-stats.md in the repo, generated by a script one of the agents wrote.</p>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 1 minute. Some numbers from the repository. Four agents from two companies. 38 messages between them, and 37 commits, from Monday afternoon to Thursday. Six reviews, five of them between agents of different companies. All four sections are finished and reviewed, and together they use 7,508 of the 8,000 characters a custom GPT allows. These numbers are a snapshot from Thursday morning; the agents kept working that day, so check results/collab-stats.md for the final counts before presenting and update this slide if they changed. That file is produced by a script that claude-D wrote.</aside>
+</section>
+<section id="demo" class="accent">
+<p class="eyebrow">LIVE DEMO · ABOUT 4 MINUTES</p>
+<h2>A lab tour with a visiting postdoc</h2>
+<div class="steps">
+<div class="step rise" style="--i:1;"><p class="n">1</p><p>“Start a practice conversation” → pick the lab tour</p></div>
+<div class="step rise" style="--i:2;"><p class="n">2</p><p>Two or three exchanges, then “slower” and “accent German”</p></div>
+<div class="step rise" style="--i:3;"><p class="n">3</p><p>“Harder”: listen for the vocabulary change</p></div>
+<div class="step rise" style="--i:4;"><p class="n">4</p><p>“End” → spoken feedback, four scores, the SCORES line</p></div>
+<div class="step rise" style="--i:5;"><p class="n">5</p><p>The coach proposes new settings and the next scenario</p></div>
+</div>
+<p class="lede" style="margin-top:40px;">If audio fails: the same instructions pasted into a text chat.</p>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 4 minutes. Switch to the phone with ChatGPT voice mode and the custom GPT open, volume up. Say "Start a practice conversation". The coach states the settings and offers three scenarios; pick the lab tour. Answer two or three of its questions about your lab. Then say "slower", and then "accent German": the partner should acknowledge in a few words and carry on in character. Say "harder" and point out that the questions get more technical. Say "end". The coach steps out of the role, gives one strength, up to two corrections, four scores, and the SCORES line. Finally it proposes new settings and the next scenario. Before the talk: check which accents sounded convincing in the voice test, and only demo those. If the custom GPT is not ready or the audio fails, open a laptop chat with coach/ASSEMBLED.md pasted as the first message and run the same steps in text.</aside>
+</section>
+<section id="results" class="alt">
+<p class="eyebrow">RESULTS</p>
+<h2>Two tests the agents ran on the coach</h2>
+<div class="row" style="margin-top:40px;">
+<div class="card rise" style="--i:1;">
+<p class="tag">PLANTED-ERROR TEST</p>
+<h3>Does feedback catch real mistakes?</h3>
+<p>3 learner transcripts with 15 known errors. The coach may correct two per conversation.</p>
+<p class="todo" style="font-size:44px; margin-top:24px;">[__] of 6 on target</p>
+<p>corrections that hit a planted error</p>
+<p>SCORES line in exact format: <span class="todo">[__] of 3</span></p>
+</div>
+<div class="card rise" style="--i:2;">
+<p class="tag">VOCABULARY DIAL</p>
+<h3>Does the level change the words?</h3>
+<p>Same lab-tour opening at three levels, measured by script.</p>
+<table style="margin-top:24px; font-size:28px;">
+<tr class="head"><th style="width:40%;">Level</th><th style="width:30%;">Words / sentence</th><th style="width:30%;">Long words</th></tr>
+<tr><td>1</td><td class="todo">[__]</td><td class="todo">[__%]</td></tr>
+<tr><td>3</td><td class="todo">[__]</td><td class="todo">[__%]</td></tr>
+<tr><td>5</td><td class="todo">[__]</td><td class="todo">[__%]</td></tr>
+</table>
+</div>
+</div>
+<p class="small" style="margin-top:24px;">Coach played in text by claude-A following the final instructions; not the voice GPT, no real users. Details: results/ in the repo.</p>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 1.5 minutes. We did not run a study with real users, so we tested the coach's instructions directly, in two ways. Left: the planted-error test. An agent wrote three learner transcripts with fifteen known errors, listed before any feedback was written, then produced the coach's feedback by following our feedback rules. We count how many of the coach's corrections hit a planted error, and whether it chose the most serious ones. Right: the vocabulary dial. The same lab-tour opening at levels 1, 3 and 5, measured by a script: words per sentence and the share of long words. If the dial works, both should rise with the level. Be clear about the limit: the coach here is played in text by an agent following our instructions, not the voice GPT, and there are no real users. The orange numbers are filled in from the results folder before the talk.</aside>
+</section>
+<section id="limits">
+<p class="eyebrow">WHAT WE DID NOT SHOW</p>
+<h2>Honest limits</h2>
+<div class="row" style="flex-wrap:wrap;">
+<div class="card rise" style="--i:1; flex:1 1 700px;"><h3>Two companies, not four</h3><p>Three agents were Claude, so one OpenAI agent did most cross-company reviews.</p></div>
+<div class="card rise" style="--i:2; flex:1 1 700px;"><h3>No user study</h3><p>Our tests check the instructions, not whether anyone’s English improves.</p></div>
+<div class="card rise" style="--i:3; flex:1 1 700px;"><h3>Voice is the weak link</h3><p>Voice mode may not hold an accent exactly; we demo only the ones that sounded right.</p></div>
+<div class="card rise" style="--i:4; flex:1 1 700px;"><h3>Humans were still needed</h3><p>Creating the GPT, the voice test and changes of plan came from people. Agents also made small mistakes, such as wrong timestamps.</p></div>
+</div>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 1 minute. Four honest limits. One: we aimed for four companies but ended with two, because three team members used Claude. That made the OpenAI agent the main cross-company reviewer. Two: there was no study with real users, so our tests show that the instructions do what they say, not that anyone's English improves. Three: voice mode does not always hold an accent; we only demo the accents that sounded right in our test. Four: humans were still needed. Creating the custom GPT, testing voice, and every change of plan came from people, through the agents' notes files. And the agents made small mistakes, for example one named its message files with the wrong time, which a human had to fix.</aside>
+</section>
+<section id="takeaway" class="dark" style="justify-content:space-between;">
+<p class="eyebrow">TAKEAWAY</p>
+<div>
+<h2 class="rise" style="font-size:96px; max-width:1600px;">AIs from different companies can build one thing together, if every step leaves a file</h2>
+<p class="lede rise" style="--i:2; max-width:1400px;">Clear ownership, review by the other company, and a human who can steer. Everything is in the repo.</p>
+</div>
+<div style="display:flex; justify-content:space-between; align-items:flex-end;">
+<p class="mono" style="font-size:32px; color:#E9A77C;">github.com/jung-minki/AIteam4</p>
+<p style="font-family:'Space Grotesk', Arial, sans-serif; font-size:72px; font-weight:600;">Questions?</p>
+</div>
+<aside>About 30 seconds, then questions. Our takeaway: AI agents from different companies, working for different people, can build one product together through nothing but shared files, as long as three things hold: every piece has one owner, every piece is reviewed by an agent from the other company, and a human can steer. All of it, every message, review and commit, is in the public repository. Thank you, we are happy to take questions. Likely questions: Why a custom GPT and not an app? Voice, accents and speed come for free, and the product is just instructions any agent can write. How do you know it helps? We tested the instructions, not learning; a user study is the next step. How did the agents know when to act? Two ran on an hourly schedule; the others were started by their humans.</aside>
+</section>
+<script>function f(){document.body.style.zoom=Math.min(1,(innerWidth-32)/1920)}addEventListener('resize',f);f()</script></body></html>

@@ -9,3 +9,4 @@ Four people, four different AI assistants, one shared repo. The AIs never talk d
 * **Who is doing what:** `TASKS.md`
 * **The coach instructions:** `coach/`
 * **The agents' conversation:** `comms/`
+* **Slides and speaker notes:** `slides/`

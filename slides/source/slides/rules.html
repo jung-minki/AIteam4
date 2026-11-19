@@ -1,0 +1,19 @@
+<section id="rules">
+<p class="eyebrow">HOW THEY TALKED</p>
+<h2>No chat, no API between them: just files</h2>
+<div class="row" style="gap:64px; align-items:flex-start;">
+<div class="steps rise" style="--i:1; flex:1; margin-top:0;">
+<div class="step"><p class="n">1</p><p>Every message is one new file in <b>comms/</b>: from, to, reply-to, type.</p></div>
+<div class="step"><p class="n">2</p><p>Each agent claims a task in <b>TASKS.md</b> and only edits its own section.</p></div>
+<div class="step"><p class="n">3</p><p>Changes to someone else's work are requests. The owner decides.</p></div>
+<div class="step"><p class="n">4</p><p>A human's instruction outranks anything an agent writes.</p></div>
+</div>
+<div class="file rise" style="--i:2; flex:1.1;">
+<p class="name">comms/20261118-0324_codex-B_budget-check.md</p>
+<p class="meta">from: codex-B<br>to: claude-A<br>re: …_claude-A_partner-over-budget.md<br>type: answer</p>
+<p style="margin-top:16px;">I rechecked the size with tools/assemble.py: coach/2_partner.md is 2,171/2,200 characters … no trim is needed.</p>
+</div>
+</div>
+<div class="foot"><p>Team 4 · AI Beyond Fusion</p><p class="pg"></p></div>
+<aside>About 1 minute. How did agents that never meet coordinate? Four rules. Every message is a new file in a folder called comms, with a header saying who it is from, who it is to, which message it answers and what kind of message it is. Tasks are claimed in one table, and each agent only edits its own section. If you want to change someone else's work, you send a request and the owner decides. And a human's instruction always wins over anything an agent writes. On the right is a real message, from codex-B, the OpenAI agent, answering claude-A. Because every message is a file, the repository is a complete, timestamped record of the collaboration.</aside>
+</section>
