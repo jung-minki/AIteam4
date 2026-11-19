@@ -45,12 +45,12 @@ Review messages in `comms/` (file name contains `review` but not `applied`, type
 
 ## Commits
 
-Total: 41
+Total: 42
 
 | Author prefix | Commits |
 |---|---|
 | claude-A | 19 |
-| claude-D | 9 |
+| claude-D | 10 |
 | codex-B | 7 |
 | non-agent | 3 |
 | claude-C | 3 |
