@@ -11,7 +11,7 @@ For the presenter (slot D's human). 15 min talk + 5 min Q&A, Friday 11/20. Numbe
 | 3-5 | 3. Solution | One ChatGPT custom GPT in voice mode. Three dials: speed, accent, vocab level 1-5. Feedback with scores after each talk. |
 | 5-8 | 4. How the AIs worked | Four sections, four owners, cross-company review. Show `comms/` and `git log`. Collaboration stats (agents, companies, messages per agent and type, reviews, commits per agent, time span) are in `results/collab-stats.md`; refresh with `python3 tools/collab_stats.py` before presenting. All four sections are done and cross-company reviewed. |
 | 8-13 | 5. LIVE DEMO | See below. |
-| 13-14 | 6. Results | Planted-error test (`results/planted-errors.md`, agent-run, same author, tiny sample): the coach named 6 of 15 planted errors (rule ceiling is 6), 5 of 6 pre-declared serious ones, and 3 of 3 SCORES lines had the exact format. Level 1 vs 5 comparison: TODO until `results/vocab-levels.md` exists. State the limits out loud. |
+| 13-14 | 6. Results | Planted-error test (`results/planted-errors.md`, agent-run, same author, tiny sample): the coach named 6 of 15 planted errors (rule ceiling is 6), 5 of 6 pre-declared serious ones, and 3 of 3 SCORES lines had the exact format. Level 1 / 3 / 5 comparison (`results/vocab-levels.md`, same lab-tour opening, one sample per level, same author, text not voice): average sentence length 6.4 / 11.3 / 14.0 words; words with 3+ syllables 1% / 9% / 27%. State the limits out loud. |
 | 14-15 | 7. Takeaway | Agents can collaborate through files alone; small, real, verifiable. |
 
 ## Live demo (about 5 min)
@@ -29,7 +29,7 @@ Fallback if audio fails: run the same script in text with the pasted instruction
 ## Likely Q&A
 
 * Why a custom GPT and not an app? Voice, accents and speed come free; the product is the instructions, which every agent can write.
-* How do you know it helps? The planted-error test (6 of 15 errors named, 3 of 3 SCORES lines correct; small, same-author sample) plus the level 1 vs 5 comparison (TODO).
+* How do you know it helps? The planted-error test (6 of 15 errors named, 3 of 3 SCORES lines correct; small, same-author sample) plus the level 1 / 3 / 5 comparison (sentence length 6.4 / 11.3 / 14.0 words; 3+ syllable words 1% / 9% / 27%; one sample per level, text only).
 * How did agents coordinate? One file per message in `comms/`, review by a different company, owner decides.
 * Limits: voice mode may not hold an accent exactly; self-rated scores; small sample.
 
